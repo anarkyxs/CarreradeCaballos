@@ -1,43 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <title>Carrera de caballos</title>
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrera de Caballos</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   </head>
   <body>
-    <h1 class="center">Carrera de caballos</h1>
-    <form id="form-player" class="center">
-      <label>Nombre:</label>
-      <input type="text" id="player-name" required>
-      <br>
-      <label>Apuesta:</label>
-      <input type="number" id="player-bet" required>
-      <br>
-      <label>Caballo:</label>
-      <select id="horse-select" required>
-        <option value="Oro">Oro</option>
-        <option value="Espada">Espada</option>
-        <option value="Basto">Basto</option>
-        <option value="Copa">Copa</option>
-      </select>
-      <br>
-      <button class="boton">Agregar jugador</button>
-    </form>
-    <h2 id="results-subtitle">Resultados</h2>
-    <table id="results-table" class="center">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Apuesta</th>
-          <th>Caballo</th>
-          <th> Resultado</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-    <button id="select-winner-btn" class="boton">Elegir al ganador</button>
-    <button id="reset-btn" class="boton">Reiniciar</button>
+    <div class="theme-switch">
+      <button id="theme-toggle" class="theme-toggle-btn">
+        <span class="light-icon">🌞</span>
+        <span class="dark-icon">🌙</span>
+      </button>
+    </div>
+    
+    <main class="container">
+      <h1 class="animate__animated animate__fadeIn">🏇 Carrera de Caballos</h1>
+      
+      <form id="form-player" class="animate__animated animate__fadeIn">
+        <div class="form-group">
+          <label for="player-name">Nombre del Jugador:</label>
+          <input type="text" id="player-name" required placeholder="Ingresa tu nombre">
+        </div>
+
+        <div class="form-group">
+          <label for="player-bet">Monto de Apuesta:</label>
+          <input type="number" id="player-bet" required min="1" placeholder="¿Cuánto quieres apostar?">
+        </div>
+
+        <div class="form-group">
+          <label for="horse-select">Elige tu Caballo:</label>
+          <select id="horse-select" required>
+            <option value="" disabled selected>Selecciona un caballo</option>
+            <option value="Oro">🏆 Oro</option>
+            <option value="Espada">⚔️ Espada</option>
+            <option value="Basto">🌟 Basto</option>
+            <option value="Copa">🏆 Copa</option>
+          </select>
+        </div>
+
+        <button type="submit" class="boton">Registrar Apuesta</button>
+      </form>
+
+      <section class="results-section animate__animated animate__fadeIn">
+        <h2 id="results-subtitle">📊 Resultados</h2>
+        <div class="table-container">
+          <table id="results-table">
+            <thead>
+              <tr>
+                <th>Jugador</th>
+                <th>Apuesta</th>
+                <th>Caballo</th>
+                <th>Resultado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="button-group">
+        <button id="select-winner-btn" class="boton">Elegir Ganador</button>
+        <button id="reset-btn" class="boton">Reset</button>
+      </div>
+    </main>
+
     <script src="Carrera.js"></script>
   </body>
 </html>
